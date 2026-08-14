@@ -1,0 +1,37 @@
+{
+  "manifest": 1,
+  "extension": {
+    "id": "wxl-spell-charges",
+    "version": "1.0.0",
+    "abi": "1.1",
+    "entry": "wxl-spell-charges.dll",
+    "assets": ["wxl-spell-charges.cfg"],
+    "requires": {
+      "wxl-runtime": ">=1.0.0"
+    },
+    "conflicts": [],
+    "hooks": []
+  },
+  "prerequisites": [
+    {
+      "kind": "server",
+      "title": "Optional compatible server-authoritative Spell Charge implementation",
+      "detail": "Implement or merge the documented opcode, state, persistence, and cast-lifecycle contract. The Hub never modifies a server or database.",
+      "url": "https://github.com/Furioz420/wxl-spell-charges/blob/main/data/SERVER_PROTOCOL.md"
+    }
+  ],
+  "deploy": {
+    "mode": "release",
+    "match": "wxl-spell-charges-v*.zip"
+  },
+  "listing": {
+    "title": "Spell Charges",
+    "tagline": "Server-authoritative spell charges for WotLK action bars.",
+    "description": "store/description.md",
+    "gallery": [],
+    "categories": ["gameplay", "interface"],
+    "accent": "#8064c5"
+  },
+  "license": "GPL-3.0-or-later",
+  "signature": null
+}
