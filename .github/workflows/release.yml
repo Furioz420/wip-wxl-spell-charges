@@ -34,7 +34,7 @@ jobs:
         run: |
           $dest = "core/extensions/$env:EXT_NAME"
           New-Item -ItemType Directory -Force -Path $dest | Out-Null
-          Copy-Item -Path "ext/src","ext/$env:EXT_NAME.cfg" -Destination $dest -Recurse -Force
+          Copy-Item -Path "ext/src" -Destination $dest -Recurse -Force
 
       - name: Configure
         shell: pwsh
@@ -53,7 +53,6 @@ jobs:
           $package = "dist/package"
           New-Item -ItemType Directory -Force -Path $package | Out-Null
           Copy-Item "core/build/Release/$env:EXT_NAME.dll" "$package/$env:EXT_NAME.dll"
-          Copy-Item "ext/$env:EXT_NAME.cfg" "$package/$env:EXT_NAME.cfg"
           New-Item -ItemType Directory -Force -Path dist | Out-Null
           Compress-Archive -Path "$package/*" -DestinationPath "dist/$env:EXT_NAME-v$version.zip" -Force
           "version=$version" >> $env:GITHUB_OUTPUT

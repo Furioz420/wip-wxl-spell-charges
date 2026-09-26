@@ -5,7 +5,7 @@ from the server into the WotLK action buttons and exposes a narrow `GetSpellChar
 
 ## Dependencies
 
-- `wxl-runtime` >= 1.0.0 for `wxl.network` and `wxl.framescript`.
+- `wxl-runtime` >= 1.1.0 for `wxl.network` and `wxl.framescript`.
 - WarcraftXL v1.1 with the public spell-charge opcodes and `PushNil` FrameScript helper.
 - A compatible server implementation using opcodes `0x525` and `0x526` when networked charges are
   enabled. The server core is optional for WarcraftXL development and is managed separately.
@@ -22,8 +22,8 @@ send the same numeric Spell ID that the client uses.
 
 ## Installation
 
-Install with WXL Hub. The release ZIP contains `wxl-spell-charges.dll` and
-`wxl-spell-charges.cfg`; the Hub places both under `Extensions\\wxl-spell-charges`. Restart the client
+Install with WXL Hub. The release ZIP contains `wxl-spell-charges.dll`;
+the Hub places it under `Extensions\\wxl-spell-charges`. Restart the client
 after installing or updating it.
 
 For manual installation, extract the release ZIP to that same directory after installing Runtime.

@@ -2,12 +2,12 @@
   "manifest": 1,
   "extension": {
     "id": "wxl-spell-charges",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "abi": "1.1",
     "entry": "wxl-spell-charges.dll",
-    "assets": ["wxl-spell-charges.cfg"],
+    "assets": [],
     "requires": {
-      "wxl-runtime": ">=1.0.0"
+      "wxl-runtime": ">=1.1.0"
     },
     "conflicts": [],
     "hooks": []
@@ -17,7 +17,7 @@
       "kind": "server",
       "title": "Optional compatible server-authoritative Spell Charge implementation",
       "detail": "Implement or merge the documented opcode, state, persistence, and cast-lifecycle contract. The Hub never modifies a server or database.",
-      "url": "https://github.com/Furioz420/wxl-spell-charges/blob/main/data/SERVER_PROTOCOL.md"
+      "url": "https://github.com/Furioz420/wip-wxl-spell-charges/blob/main/data/SERVER_PROTOCOL.md"
     }
   ],
   "deploy": {
