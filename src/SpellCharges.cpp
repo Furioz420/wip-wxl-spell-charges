@@ -3,7 +3,6 @@
 
 #include "ExtensionApi.hpp"
 #include "game/Script.hpp"
-#include "wxl/WxlOpcodes.h"
 
 #include <windows.h>
 
@@ -22,10 +21,8 @@ namespace
 
     namespace opcodes
     {
-        constexpr uint16_t CmsgSpellChargesRequest =
-            WXL_CMSG_SPELL_CHARGES_REQUEST;
-        constexpr uint16_t SmsgSpellChargesUpdate =
-            WXL_SMSG_SPELL_CHARGES_UPDATE;
+        constexpr uint16_t CmsgSpellChargesRequest = 0x0525;
+        constexpr uint16_t SmsgSpellChargesUpdate = 0x0526;
     }
 
     namespace network
@@ -65,10 +62,10 @@ namespace
             return api && api->RegisterScript(name, source) != 0;
         }
 
-        bool ExecuteCurrent(const char* name, const char* source)
+        bool Execute(const char* name, const char* source)
         {
             const WXL_FrameScriptApi* api = wxl_spell_charges::FrameScript();
-            return api && api->ExecuteCurrent(name, source) != 0;
+            return api && api->Execute(source, name) != 0;
         }
     }
 
@@ -175,7 +172,7 @@ namespace
             return;
         }
 
-        framescript::ExecuteCurrent(
+        framescript::Execute(
             "spell-charges-update",
             "if WXLSpellCharges and WXLSpellCharges._NativeChanged then "
             "WXLSpellCharges._NativeChanged() end");
@@ -533,6 +530,7 @@ end
         return ok;
     }
 }
+
 namespace wxl_spell_charges
 {
     bool InstallSpellCharges()

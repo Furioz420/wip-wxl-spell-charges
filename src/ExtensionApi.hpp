@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "common/ExtensionConfig.hpp"
 #include "wxl/FrameScriptApi.h"
 #include "wxl/NetworkApi.h"
 #include "wxl/PluginApi.h"
@@ -28,15 +27,6 @@ namespace wxl_spell_charges
             g_framescript = static_cast<const WXL_FrameScriptApi*>(
                 g_api->GetInterface("wxl.framescript", WXL_FRAME_SCRIPT_API_VERSION));
         return g_framescript;
-    }
-
-    inline bool ConfigBool(const char* name, bool fallback)
-    {
-        char value[16] = {};
-        return wxl::ext::config::Raw(name, value, sizeof value,
-                                     "Extensions\\wxl-spell-charges\\wxl-spell-charges.cfg")
-            ? wxl::ext::config::Truthy(value, fallback)
-            : fallback;
     }
 
     bool InstallSpellCharges();
