@@ -33,3 +33,13 @@ The exact packet, state, and lifecycle contract is documented in
 [`data/SERVER_PROTOCOL.md`](data/SERVER_PROTOCOL.md). The current AzerothCore reference requires
 Core-level changes and is therefore not presented as a drop-in script. Another server core may
 implement the same contract.
+
+## Integration and release checks
+
+Build `wxl-spell-charges` as a Win32 Release target against the matching core and Runtime 1.1 interfaces. The proposed 1.1 release workflow packages the DLL only; spell definitions, charge ownership, persistence, and matching server handlers are separate. The module does not ship a DB2/DBC payload or an active config switch.
+
+With a compatible server, test a charge-bearing spell through use, recharge, reconnect, and a deliberately unconfigured spell. Check action-bar display, Lua `GetSpellCharges`, packet/state consistency, and logs. Keep the previous DLL and server state/data migration rollback plan. The integration target compiles, but the standalone `main` workflow still uses moving upstream `v1.1`; pin and validate its core before release.
+
+## Credits
+
+The WXL core ABI and original module interfaces come from WarcraftXL contributors. The local v1.1 integration commits in this snapshot are attributed to Furioz in the integration history. Preserve source-file notices and the GPL-3.0-or-later `LICENSE` when redistributing source or binaries.
